@@ -28,3 +28,6 @@ jobs:
 
       - name: link.
         run: make link
+
+      - name: defaults.
+        run: make defaults
