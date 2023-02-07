@@ -16,7 +16,7 @@ echo "brew upgradeを実行します..."
 which /opt/homebrew/bin/brew >/dev/null 2>&1 && brew upgrade --verbose
 
 echo ".Brewfileで管理しているアプリケーションをインストールします..."
-which /opt/homebrew/bin/brew >/dev/null 2>&1 && brew bundle --file ./.Brewfile --verbose
+which /opt/homebrew/bin/brew >/dev/null 2>&1 && brew bundle --file ../homebrew/Brewfile --verbose
 
 echo "brew cleanupを実行します..."
 which brew >/dev/null 2>&1 && brew cleanup --verbose
