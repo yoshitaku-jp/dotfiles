@@ -1,9 +1,12 @@
 # Do everything.
-all: init link
+all: init brew link
 
 # Set initial preference.
 init:
 	./bin/setup.sh
+
+brew:
+	./bin/brew.sh
 
 link:
 	./bin/link.sh
