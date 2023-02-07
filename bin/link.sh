@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 ln -s ~/workspace/dotfiles/.zsh ~
 ln -s ~/workspace/dotfiles/.zshrc ~

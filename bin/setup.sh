@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 echo "Xcodeをインストールします..."
 xcode-select --install
