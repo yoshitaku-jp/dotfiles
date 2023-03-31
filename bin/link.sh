@@ -1,4 +1,6 @@
 #!/bin/zsh
 
-ln -s ~/workspace/dotfiles/.zsh ~
-ln -s ~/workspace/dotfiles/.zshrc ~
+# すでにシンボリックリンクが存在する場合は、上書きしない
+echo ".zshと.zshrcのシンボリックリンクを作成しています..."
+ln -snf ~/workspace/dotfiles/.zsh ~
+ln -snf ~/workspace/dotfiles/.zshrc ~
