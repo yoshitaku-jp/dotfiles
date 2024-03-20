@@ -9,24 +9,53 @@ on:
     branches: [main]
 
 jobs:
-  dotfiles-tests:
+  init:
     runs-on: macos-latest
-
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
-
       - name: init.
         continue-on-error: true
         run: make init
 
+  brew:
+    runs-on: macos-latest
+    steps:
       - name: brew.
         continue-on-error: true
         run: make brew
+      - name: Cache Homebrew packages
+        uses: actions/cache@v2
+        with:
+          path: brew_packages.txt
+          key: ${{ runner.os }}-brew-${{ hashFiles('brew_packages.txt') }}
 
+      - name: Restore Homebrew packages
+        uses: actions/cache@v2
+        with:
+          path: brew_packages.txt
+          key: ${{ runner.os }}-brew-${{ hashFiles('brew_packages.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-brew-
+
+      - name: Verify Homebrew packages
+        run: |
+          if [[ -f "brew_packages.txt" ]]; then
+            echo "Cached Homebrew packages:"
+            cat brew_packages.txt
+          else
+            echo "No cached Homebrew packages found."
+          fi
+
+  link:
+    runs-on: macos-latest
+    steps:
       - name: link.
         continue-on-error: true
         run: make link
 
+  defaults:
+    runs-on: macos-latest
+    steps:
       - name: defaults.
         continue-on-error: true
         run: make defaults
