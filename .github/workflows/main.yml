@@ -14,7 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: init.
-        continue-on-error: true
         run: make init
 
   brew:
@@ -22,7 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: brew.
-        continue-on-error: true
         run: make brew
       - name: Cache Homebrew packages
         uses: actions/cache@v2
@@ -52,7 +50,6 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: link.
-        continue-on-error: true
         run: make link
 
   defaults:
@@ -60,5 +57,4 @@ jobs:
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: defaults.
-        continue-on-error: true
         run: make defaults
