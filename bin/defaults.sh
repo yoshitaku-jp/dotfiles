@@ -53,3 +53,5 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool "false"
 ## スペルの訂正を無効にする
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool "false"
+
+defaults write com.apple.symbolichotkeys.plist 'AppleSymbolicHotKeys' -dict "$(cat ~/plist/symbolichotkeys_content.plist)"
