@@ -1,6 +1,10 @@
 name: Dotfiles CI
 
 on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
   push:
     branches: [main]
 
@@ -9,7 +13,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@b4ffde6 #v4
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
 
       - name: init.
         continue-on-error: true
