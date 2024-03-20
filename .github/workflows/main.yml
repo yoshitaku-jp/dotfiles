@@ -20,6 +20,7 @@ jobs:
   brew:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: brew.
         continue-on-error: true
         run: make brew
@@ -49,6 +50,7 @@ jobs:
   link:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: link.
         continue-on-error: true
         run: make link
@@ -56,6 +58,7 @@ jobs:
   defaults:
     runs-on: macos-latest
     steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: defaults.
         continue-on-error: true
         run: make defaults
