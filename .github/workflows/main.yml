@@ -9,7 +9,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@b4ffde6 #v4
 
       - name: init.
         continue-on-error: true
