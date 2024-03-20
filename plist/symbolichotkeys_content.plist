@@ -1,4 +1,4 @@
-{
+"{
     AppleSymbolicHotKeys =     {
         10 =         {
             enabled = 1;
@@ -687,4 +687,4 @@
             };
         };
     };
-}
+}"
