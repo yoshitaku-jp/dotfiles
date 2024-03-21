@@ -6,6 +6,8 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  vscode
+  mise
 )
 
 source "$HOME/.rye/env"
