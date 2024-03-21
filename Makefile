@@ -10,6 +10,3 @@ brew:
 
 link:
 	./bin/link.sh
-
-defaults:
-	./bin/defaults.sh

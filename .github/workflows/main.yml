@@ -18,16 +18,11 @@ jobs:
 
   brew:
     runs-on: macos-latest
+    needs: init
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: brew.
         run: make brew
-      - name: Cache Homebrew packages
-        uses: actions/cache@v2
-        with:
-          path: brew_packages.txt
-          key: ${{ runner.os }}-brew-${{ hashFiles('brew_packages.txt') }}
-
       - name: Restore Homebrew packages
         uses: actions/cache@v2
         with:
@@ -35,26 +30,16 @@ jobs:
           key: ${{ runner.os }}-brew-${{ hashFiles('brew_packages.txt') }}
           restore-keys: |
             ${{ runner.os }}-brew-
-
-      - name: Verify Homebrew packages
-        run: |
-          if [[ -f "brew_packages.txt" ]]; then
-            echo "Cached Homebrew packages:"
-            cat brew_packages.txt
-          else
-            echo "No cached Homebrew packages found."
-          fi
+      - name: Cache Homebrew packages
+        uses: actions/cache@v2
+        with:
+          path: brew_packages.txt
+          key: ${{ runner.os }}-brew-${{ hashFiles('brew_packages.txt') }}
 
   link:
     runs-on: macos-latest
+    needs: init
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
       - name: link.
         run: make link
-
-  defaults:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4
-      - name: defaults.
-        run: make defaults
