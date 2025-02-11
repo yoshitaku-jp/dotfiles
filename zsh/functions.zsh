@@ -1,3 +1,7 @@
+function cd() {
+   builtin cd $@ && ls;
+}
+
 function pecofind() { # find コマンドの出力結果をpeco する
   if [ $# -eq 0 ]; then
     find . | peco
