@@ -24,7 +24,6 @@ brew "cask" # Cask パッケージ管理
 brew "circleci" # CircleCI CLI
 brew "cjson" # JSON パーサー
 brew "cmocka" # C 言語向けユニットテストライブラリ
-brew "composer" # PHP パッケージ管理
 brew "coreutils" # GNU コマンドラインツール群
 brew "curl" # HTTP クライアントツール
 brew "dav1d" # AV1 デコーダー
@@ -80,7 +79,6 @@ brew "libvpx" # VP8/VP9 ビデオコーデック
 brew "openssl@3" # SSL/TLS ライブラリ
 brew "pcre" # 正規表現ライブラリ
 brew "peco" # インタラクティブフィルタ
-brew "php" # PHP 言語
 brew "pkg-config" # パッケージ管理ツール
 brew "python@3.11" # Python 3.11
 brew "sqlite" # 軽量データベース
@@ -104,6 +102,5 @@ cask "iterm2" # ターミナルエミュレータ
 cask "karabiner-elements" # キーボードカスタマイズツール
 cask "obsidian" # Markdown ノートアプリ
 cask "scroll-reverser" # スクロール方向カスタマイズ
-cask "skitch" # 画像キャプチャ・注釈ツール
 cask "slack" # チームチャット
 cask "visual-studio-code" # コードエディタ
