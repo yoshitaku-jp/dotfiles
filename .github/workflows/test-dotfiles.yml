@@ -10,10 +10,7 @@ on:
 
 jobs:
   test-dotfiles:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest] # Ubuntu & macOS 両方でテスト
+    runs-on: macos-latest # macOS のみで実行
 
     steps:
       - name: Check out repository

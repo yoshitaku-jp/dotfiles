@@ -7,31 +7,15 @@ BREWFILE="$DOTFILES_DIR/Brewfile"
 
 echo "Installing Homebrew and required packages..."
 
-# -------------------------------
-# Homebrew のインストール（macOS & Ubuntu）
-# -------------------------------
+# Homebrew のインストール
 if ! command -v brew &>/dev/null; then
   echo "Homebrew is not installed. Installing now..."
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS の場合
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  else
-    # Linux (Ubuntu) の場合
-    sudo apt update
-    sudo apt install -y build-essential curl file git
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    # Linux では `brew` のパスを設定する必要がある
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.profile"
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  fi
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "Homebrew is already installed."
 fi
 
-# -------------------------------
 # Brewfile によるパッケージインストール
-# -------------------------------
 if [[ -f "$BREWFILE" ]]; then
   echo "Installing packages from Brewfile..."
   brew bundle --file="$BREWFILE"
