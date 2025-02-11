@@ -1,12 +1,25 @@
-# Do everything.
-all: init brew link
+.PHONY: setup clean update brew
 
-# Set initial preference.
-init:
-	./bin/setup.sh
+# 環境セットアップ
+setup:
+	@echo "Starting dotfiles setup..."
+	@chmod +x setup.sh install_brew.sh setup_links.sh
+	@./setup.sh
+	@echo "Dotfiles setup completed!"
 
+# Homebrew でパッケージをインストール
 brew:
-	./bin/brew.sh
+	@echo "Installing packages from Brewfile..."
+	@brew bundle --file=Brewfile
 
-link:
-	./bin/link.sh
+# クリーンアップ (シンボリックリンクを削除)
+clean:
+	@echo "Removing symlinks..."
+	@rm -f ~/.zshrc
+	@rm -rf ~/.zsh
+	@echo "Cleanup completed!"
+
+# dotfiles を最新の状態に更新
+update:
+	@git pull --rebase
+	@make setup
