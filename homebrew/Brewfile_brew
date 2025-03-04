@@ -1,0 +1,8 @@
+tap "homebrew/bundle"
+brew "docker"
+brew "docker-credential-helper"
+brew "gettext"
+brew "mise"
+brew "peco"
+brew "uv"
+brew "wget"

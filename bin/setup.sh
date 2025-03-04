@@ -1,6 +1,10 @@
-#!/bin/zsh
+#!/bin/bash
 
-echo "Xcodeをインストールします..."
-xcode-select --install
+echo "Installing brew packages..."
+brew bundle --file=../homebrew/Brewfile_brew
 
-exec $SHELL -l
+echo "Installing cask packages..."
+brew bundle --file=../homebrew/Brewfile_cask
+
+echo "Installing vscode packages..."
+brew bundle --file=../homebrew/Brewfile_vscode
