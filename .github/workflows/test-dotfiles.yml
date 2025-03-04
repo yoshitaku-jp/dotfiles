@@ -16,6 +16,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Set up Homebrew cache
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/Homebrew
+          key: ${{ runner.os }}-brew-${{ hashFiles('**/Brewfile*') }}
+          restore-keys: |
+            ${{ runner.os }}-brew-
+
       - name: Install Homebrew and packages
         run: |
           chmod +x install_brew.sh
@@ -28,8 +36,8 @@ jobs:
 
       - name: Verify symlinks
         run: |
-          test -L "$HOME/.zshrc" && echo ".zshrc symlink exists"
-          test -L "$HOME/.zsh" && echo ".zsh symlink exists"
+          test -L "$HOME/.zshrc" && echo ".zshrc symlink exists" || echo ".zshrc symlink does not exist"
+          test -L "$HOME/.zsh" && echo ".zsh symlink exists" || echo ".zsh symlink does not exist"
 
       - name: Verify Zsh loads correctly
         run: |
