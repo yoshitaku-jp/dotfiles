@@ -1,6 +1,3 @@
-# 環境変数
-export LANG=ja_JP.UTF-8
-
 # ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=50000
@@ -14,7 +11,3 @@ setopt hist_ignore_all_dups
 
 # 同時に起動したzshの間でヒストリを共有
 setopt share_history
-
-# ディレクトリスタック
-DIRSTACKSIZE=100
-setopt AUTO_PUSHD

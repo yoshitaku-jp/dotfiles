@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="ys"
@@ -23,3 +24,9 @@ alias gl="git log --oneline --decorate --graph --all"
 alias gs="git status"
 alias gp="git push"
 alias gd="git diff"
+=======
+# Load Zsh configuration from dotfiles
+for file in $HOME/.zsh/*.zsh; do
+  source $file
+done
+>>>>>>> 496c4b6fd84826e1a613f0b018effae61244acc8

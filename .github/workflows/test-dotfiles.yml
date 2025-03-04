@@ -1,0 +1,36 @@
+name: Test Dotfiles Setup
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-dotfiles:
+    runs-on: macos-latest # macOS のみで実行
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Homebrew and packages
+        run: |
+          chmod +x install_brew.sh
+          ./install_brew.sh
+
+      - name: Run setup script
+        run: |
+          chmod +x setup.sh setup_links.sh
+          ./setup.sh
+
+      - name: Verify symlinks
+        run: |
+          test -L "$HOME/.zshrc" && echo ".zshrc symlink exists"
+          test -L "$HOME/.zsh" && echo ".zsh symlink exists"
+
+      - name: Verify Zsh loads correctly
+        run: |
+          zsh -c "echo 'Zsh loaded successfully'"
